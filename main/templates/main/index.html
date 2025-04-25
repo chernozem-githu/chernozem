@@ -1,0 +1,53 @@
+{% extends 'main/chernozem.html' %}
+{% load static %}
+
+{% block title %}Главная страница{% endblock %}
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'main/css/main_separated.css' %}">
+{% endblock %}
+
+ы
+{% block video_background %}
+<div class="video-background">
+    <video autoplay muted loop playsinline>
+        <source src="{% static 'main/video/1705055-hd_1920_1080_30fps.mp4' %}" type="video/mp4">
+        Ваш браузер не поддерживает видео.
+    </video>
+</div>
+{% endblock %}
+
+{% block content %}
+<main>
+
+
+    <div class="perfume-container">
+        <div class="perfume-card">
+            <h3>Orto Parisi Megamare</h3>
+            <img src="{% static 'main/img/i (2).webp' %}" alt="Orto Parisi Megamare">
+            <p><strong>Верхние ноты:</strong> Морская соль, Цитрусы</p>
+            <p><strong>Средние ноты:</strong> Озон, Водоросли</p>
+            <p><strong>Базовые ноты:</strong> Амбра, Древесные аккорды</p>
+            <p><strong>Стойкость:</strong> 10+ часов</p>
+        </div>
+
+        <div class="perfume-card">
+            <h3>Armani Stronger With You</h3>
+            <img src="{% static 'main/img/i (3).webp' %}" alt="Armani Stronger With You">
+            <p><strong>Верхние ноты:</strong> Кардамон, Розовый перец</p>
+            <p><strong>Средние ноты:</strong> Шалфей, Дыня</p>
+            <p><strong>Базовые ноты:</strong> Ваниль, Кашмеран</p>
+            <p><strong>Стойкость:</strong> 8-10 часов</p>
+        </div>
+
+        <div class="perfume-card">
+            <h3>Givenchy Gentleman The New Cologne</h3>
+            <img src="{% static 'main/img/i (4).webp' %}" alt="Givenchy Gentleman">
+            <p><strong>Верхние ноты:</strong> Груша, Кардамон</p>
+            <p><strong>Средние ноты:</strong> Ирис, Лаванда</p>
+            <p><strong>Базовые ноты:</strong> Кожа, Ваниль</p>
+            <p><strong>Стойкость:</strong> 7-9 часов</p>
+        </div>
+    </div>
+
+</main>
+{% endblock %}

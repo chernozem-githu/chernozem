@@ -1,0 +1,11 @@
+<form method="post">
+  {% csrf_token %}
+  <input type="email" name="email" placeholder="Email" required>
+  <input type="password" name="password" placeholder="Пароль" required>
+  <button type="submit">Войти</button>
+</form>
+{% if messages %}
+  {% for message in messages %}
+    <p>{{ message }}</p>
+  {% endfor %}
+{% endif %}

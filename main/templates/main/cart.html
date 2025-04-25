@@ -1,0 +1,38 @@
+{% extends 'main/chernozem.html' %}
+{% load static %}
+
+{% block title %}Корзина{% endblock %}
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'main/css/cart.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="cart-container">
+    <h1>Ваша корзина</h1>
+    {% if cart.items.all %}
+    <ul class="cart-items">
+        {% for item in cart.items.all %}
+        <li>
+            <img src="{{ item.perfume.image.url }}" alt="{{ item.perfume.name }}">
+            <div>
+                <h4>{{ item.perfume.name }}</h4>
+                <p>Цена: {{ item.perfume.price }} ₽ × {{ item.quantity }}</p>
+                <a href="{% url 'remove_from_cart' item.id %}" class="remove-btn">Удалить</a>
+            </div>
+        </li>
+        {% endfor %}
+    </ul>
+    <p class="total">Общая сумма:
+        {% with total=cart.items.all|length %}
+            {% if total >= 20 %}
+                {{ cart.total_price|floatformat:2|add:"-10"|floatformat:2 }} ₽ <small>(-10% скидка)</small>
+            {% else %}
+                {{ cart.total_price }} ₽
+            {% endif %}
+        {% endwith %}
+    </p>
+    {% else %}
+    <p>Корзина пуста</p>
+    {% endif %}
+</div>
+{% endblock %}

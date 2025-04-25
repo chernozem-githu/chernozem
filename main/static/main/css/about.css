@@ -1,0 +1,204 @@
+.about-container {
+    max-width: 1000px;
+    background: rgba(255, 255, 255, 0.3); /* Сделаем фон немного прозрачным */
+    text-align: center;
+    border-radius: 40px;
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
+    padding: 80px; /* Пространство вокруг текста */
+    margin: auto; /* Центрируем по горизонтали */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.about-container h1 {
+    margin-bottom: 20px; /* Отступ между заголовком и текстом */
+}
+
+.about-container p {
+    max-width: 80%; /* Чтобы текст не растягивался */
+    line-height: 1.6; /* Увеличим интервал между строками */
+    font-size: 25px; /* Сделаем текст читаемым */
+    color: black;
+    text-align: center; /* Равномерное распределение текста */
+    z-index: 10;
+    padding: 80px;
+}
+
+
+/* Кнопка */
+.about-button {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 10px 20px;
+    font-size: 1.2rem;
+    color: white;
+    background: #ff6f61;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-decoration: none;
+    transition: background 0.3s ease;
+}
+
+.about-button:hover {
+    background: #ff483f;
+}
+
+/* Футер */
+.footer {
+    position: fixed; /* Фиксируем футер */
+    bottom: 0;
+    left: 22%;
+    width: calc(100% - 25%);
+    height: 8vh; /* Футер будет занимать 8% высоты экрана */
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+    text-align: center;
+    font-size: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+}
+
+
+/* Иконки в футере */
+.footer a {
+    color: whitesmoke;
+    text-decoration: none;
+    font-size: 30px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 60px;
+}
+
+.footer a:hover {
+    text-decoration: underline;
+}
+
+.about-image-container {
+  position: relative;
+  max-width: 100%;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.background-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    object-fit: cover;
+}
+
+
+.overlay-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    text-align: center;
+    z-index: 10;
+    padding: 20px;
+    max-width: 80%;
+    background-color: rgba(0, 0, 0, 0.4); /* слегка затемнённый фон под текст */
+    border-radius: 10px; /* плавные края */
+}
+
+.overlay-text h1 {
+  font-size: 48px;
+  margin-bottom: 20px;
+}
+
+.overlay-text p {
+  font-size: 22px;
+  line-height: 1.6;
+}
+
+/* Новый стиль для иконок */
+.social-icons {
+  position: absolute;
+  bottom: 10px; /* Отступ снизу */
+  left: 55%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 350px; /* Расстояние между иконками */
+}
+
+.social-icons a {
+  display: block;
+}
+
+.social-icons img {
+  width: 40px;
+  height: 40px;
+  transition: transform 0.3s ease;
+  filter: brightness(0) invert(1); /* Этот фильтр сделает иконки белыми */
+}
+
+.social-icons img:hover {
+  transform: scale(1.1);
+}
+
+
+.catalog-section {
+    padding: 40px;
+    background-color: rgba(255,255,255,0.05);
+    border-radius: 12px;
+    margin-top: 50px;
+    text-align: center;
+    color: white;
+}
+
+.catalog-categories {
+    display: flex;
+    justify-content: center;
+    gap: 50px;
+    margin-top: 30px;
+    flex-wrap: wrap;
+}
+
+.catalog-item {
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: 20px 30px;
+    border-radius: 10px;
+    width: 250px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+}
+
+.catalog-item h3 {
+    margin-bottom: 10px;
+    color: #00ffff;
+}
+.catalog-button-wrapper {
+    margin-top: 30px;
+    text-align: center;
+}
+
+.catalog-btn {
+    background-color: #00bfff;
+    color: white;
+    padding: 10px 30px;
+    border-radius: 10px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.catalog-btn:hover {
+    background-color: #0099cc;
+}
+
+
+
+
+
+
+/* Стили для контактной страницы */

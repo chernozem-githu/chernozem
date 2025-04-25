@@ -1,0 +1,41 @@
+.catalog-container {
+    text-align: center;
+    padding: 50px;
+    color: white;
+}
+.categories a {
+    margin: 0 10px;
+    color: #00c4ff;
+    text-decoration: none;
+}
+.perfume-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 30px;
+}
+.perfume-card {
+    background: #111;
+    color: white;
+    border-radius: 12px;
+    padding: 20px;
+    margin: 15px;
+    width: 220px;
+    box-shadow: 0 0 10px #222;
+    text-align: center;
+}
+.perfume-card img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+.add-btn {
+    display: inline-block;
+    margin-top: 10px;
+    background: #00c4ff;
+    padding: 8px 15px;
+    border-radius: 8px;
+    color: white;
+    text-decoration: none;
+}

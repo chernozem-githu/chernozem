@@ -1,0 +1,23 @@
+{% extends 'main/chernozem.html' %}
+{% load static %}
+
+{% block title %}Подтверждение Email{% endblock %}
+
+{% block content %}
+<main class="auth-form">
+    <div class="register-container">
+        <h2>Введите код подтверждения</h2>
+        <form method="post">
+            {% csrf_token %}
+            <input type="email" name="email" placeholder="Email" required>
+            <input type="text" name="code" placeholder="6-значный код" required>
+            <button type="submit">Подтвердить</button>
+        </form>
+        {% if messages %}
+          {% for message in messages %}
+            <p>{{ message }}</p>
+          {% endfor %}
+        {% endif %}
+    </div>
+</main>
+{% endblock %}

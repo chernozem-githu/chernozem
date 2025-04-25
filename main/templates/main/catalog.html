@@ -1,0 +1,56 @@
+{% extends 'main/chernozem.html' %}
+{% load static %}
+
+{% block title %}Каталог{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'main/css/catalog.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="catalog-container">
+    <h1>Каталог ароматов</h1>
+
+    <div class="categories">
+        <a href="{% url 'catalog' %}">Все</a>
+        <a href="?category=sweet">Сладкие</a>
+        <a href="?category=fresh">Свежие</a>
+        <a href="?category=marine">Морские</a>
+    </div>
+
+    <div class="perfume-list">
+        {% for perfume in perfumes %}
+        <div class="perfume-card"
+             data-name="{{ perfume.name }}"
+             data-category="{{ perfume.get_category_display }}"
+             data-description="{{ perfume.description }}"
+             data-price="{{ perfume.price }}"
+             data-image="{{ perfume.image.url }}">
+            <img src="{{ perfume.image.url }}" alt="{{ perfume.name }}">
+            <h3>{{ perfume.name }}</h3>
+            <p><strong>Категория:</strong> {{ perfume.get_category_display }}</p>
+            <p><strong>Цена:</strong> {{ perfume.price }} ₽</p>
+        </div>
+        {% empty %}
+        <p>Нет товаров.</p>
+        {% endfor %}
+    </div>
+</div>
+
+<!-- Модалка -->
+<div class="modal" id="perfumeModal">
+    <div class="modal-content">
+        <span class="close">&times;</span>
+        <img id="modalImage" src="" alt="">
+        <h2 id="modalName"></h2>
+        <p><strong>Категория:</strong> <span id="modalCategory"></span></p>
+        <p><strong>Описание:</strong> <span id="modalDescription"></span></p>
+        <p><strong>Цена:</strong> <span id="modalPrice"></span> ₽</p>
+        <a href="#" class="add-btn">Добавить в корзину</a>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script src="{% static 'main/js/modal.js' %}"></script>
+{% endblock %}

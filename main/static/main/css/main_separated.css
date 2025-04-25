@@ -1,0 +1,398 @@
+
+body {
+    background: black; /* Общий фон для всех */
+}
+h1{
+    text-align: center;
+}
+.perfume-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; /* Центрирует карточки */
+    gap: 70px; /* Добавляет пространство между ними */
+    padding: 150px;
+}
+
+.perfume-card {
+    text-align: center; /* Центрирует текст внутри карточки */
+    max-width: 300px; /* Чтобы карточки не растягивались */
+    background-color: rgba(255, 255, 255, 0.1);
+    color:whitesmoke;
+    border-radius: 15px;
+    padding: 15px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.perfume-card img {
+    display: block;
+    width: 100%; /* Растягивает изображение на всю ширину карточки */
+    height: 250px; /* Фиксированная высота */
+    object-fit: cover; /* Обрезает изображение, чтобы оно не искажалось */
+    border-radius: 10px;
+}
+.wrapper {
+    padding-bottom: 12vh; /* Учитываем место для футера */
+}
+aside {
+    float: left;
+    background-color: rgba(255, 255, 255, 0);
+    width: 12%;
+    padding:1px;
+    min-height: 100vh;
+}
+
+aside ul {list-style: none}
+
+aside ul li {
+    color: #fff;
+    display: block;
+    padding: 70px;
+    margin-top: 10px;
+    transition: transform .6s ease;
+}
+
+aside ul li:hover, aside ul a:hover {
+    color: darkred;
+    text-decoration: none;
+    transform: scale(1.05);
+}
+
+main .features {
+    float: left;
+    color: #fff;
+    margin-top: 125px;
+    text-align: center;
+    width: 75%;
+}
+
+main .features h1 {
+    font-size: 50px;
+}
+
+main .features p {
+    max-width: 400px;
+    margin: 20px auto;
+}
+
+.alert-warning {
+    float: left;
+    clear: both;
+    width: 400px;
+    margin: 20px 30%;
+    text-align: left;
+}
+
+form {
+    margin-left: 32%;
+    width: 500px;
+    margin-top: 50px;
+}
+
+aside .button-container {
+    margin-top: 20px;
+}
+
+aside .button-container a {
+    display: inline-block;
+    background: #00aaff;
+    color: white;
+    padding: 10px 15px;
+    border-radius: 5px;
+    transition: background 0.3s ease;
+}
+
+aside .button-container a:hover {
+    background: #0088cc;
+}
+
+/* Добавление видео в качестве фона */
+.video-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    z-index: -1;
+}
+
+.video-background video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    object-fit: cover;
+}
+
+/* Адаптация контейнера с парфюмом */
+.perfume-container {
+    position: relative;
+    z-index: 2;
+}
+
+.modal-content {
+    background: white;
+    padding: 20px;
+    width: 300px;
+    margin: 15% auto;
+    text-align: center;
+    border-radius: 8px;
+}
+
+.close {
+    position: absolute;
+    right: 15px;
+    top: 10px;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+
+.auth-buttons {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    padding: 20px;
+}
+
+.auth-buttons .register,
+.auth-buttons .login,
+.auth-buttons .logout-btn {
+    background: #222;
+    color: white;
+    padding: 8px 16px;
+    border: none;
+    text-decoration: none;
+    border-radius: 8px;
+    transition: background 0.3s;
+}
+
+.auth-buttons .register:hover,
+.auth-buttons .login:hover,
+.auth-buttons .logout-btn:hover {
+    background: #444;
+}
+
+.profile-info {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.profile-info .avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+<!-- about -->
+ html, body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: black;
+  color: #333;
+}
+
+header {
+  background-color: black;
+  color: white;
+  padding: 20px 180px;
+  text-align: center;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+}
+
+.container {
+  max-width: 1300px;
+  margin: 40px auto;
+  background-color:black ;
+  padding: 50px;
+  text-align: center;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.container h2{
+    color:white;
+}
+
+h1, h2 {
+  margin-bottom: 20px;
+}
+
+.contact-info p {
+  margin: 8px 0;
+  font-size: 16px;
+  color:white;
+}
+
+.form-group {
+  margin-bottom: 30px;
+  color:white;
+}
+
+label {
+  display: block;
+  margin-bottom: 6px;
+  font-weight: 600;
+}
+
+input[type="text"],
+input[type="email"],
+textarea {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 15px;
+  transition: border-color 0.3s ease;
+}
+
+input:focus,
+textarea:focus {
+  border-color: #005cbf;
+  outline: none;
+}
+
+button {
+  background-color: #005cbf;
+  color: white;
+  padding: 12px 25px;
+  border: none;
+  border-radius: 6px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #004a99;
+}
+aside {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 120vh;
+    width: 250px;
+    background-color: rgba(0, 0, 0, 0.2);
+    z-index: 999;
+    padding-top: 5px;
+}
+
+
+aside a {
+    color: white;
+    text-decoration: none;
+}
+
+aside li {
+    list-style: none;
+    padding: 40px 0;
+}
+
+
+.auth-buttons {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    padding: 20px;
+}
+
+.auth-buttons .register,
+.auth-buttons .login,
+.auth-buttons .logout-btn {
+    background: #222;
+    color: white;
+    padding: 8px 16px;
+    border: none;
+    text-decoration: none;
+    border-radius: 8px;
+    transition: background 0.3s;
+}
+
+.auth-buttons .register:hover,
+.auth-buttons .login:hover,
+.auth-buttons .logout-btn:hover {
+    background: #444;
+}
+
+.profile-info {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.profile-info .avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+
+
+.logout-btn {
+    border: 1px solid red;
+    background-color: rgba(0,0,0,0.3);
+}
+.profile-dropdown {
+    position: fixed;
+    top: 20px;
+    right: 40px;
+    z-index: 1000;
+}
+
+.profile-info {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+    color: white;
+}
+
+.avatar-img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.profile-name {
+    font-weight: bold;
+}
+
+.dropdown-icon {
+    color: white;
+    margin-left: 5px;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    right: 0;
+    margin-top: 40px;
+    background-color: rgba(0,0,0,0.8);
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.5);
+}
+
+.dropdown-content a {
+    display: block;
+    padding: 8px 12px;
+    color: white;
+    text-decoration: none;
+}
+
+.dropdown-content a:hover {
+    background-color: #444;
+}
+
+.profile-dropdown:hover .dropdown-content {
+    display: block;
+}

@@ -1,0 +1,12 @@
+services:
+  - type: web
+    name: chernozem-django
+    runtime: python
+    buildCommand: "pip install -r requirements.txt"
+    startCommand: "gunicorn chernoha.wsgi:application"
+    envVars:
+      - key: DJANGO_SETTINGS_MODULE
+        value: chernoha.settings
+      - key: PYTHON_VERSION
+        value: 3.11.9
+    autoDeploy: true

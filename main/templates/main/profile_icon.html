@@ -1,0 +1,36 @@
+{% extends 'main/chernozem.html' %}
+{% load static %}
+
+{% block title %}Профиль{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'main/css/profile.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="profile-container">
+    <h1>Ваш профиль</h1>
+
+    <div class="profile-avatar">
+        {% if user.avatar %}
+            <img src="{{ user.avatar.url }}" alt="Аватар">
+        {% endif %}
+    </div>
+
+    <div class="profile-info">
+        <p><strong>Имя:</strong> {{ user.first_name }}</p>
+        <p><strong>Фамилия:</strong> {{ user.last_name }}</p>
+        <p><strong>Email:</strong> {{ user.email }}</p>
+    </div>
+
+    <div class="upload-section">
+        <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <label for="avatar">Загрузить аватар:</label>
+            <input type="file" name="avatar" id="avatar">
+            <br>
+            <button type="submit">Сохранить</button>
+        </form>
+    </div>
+</div>
+{% endblock %}

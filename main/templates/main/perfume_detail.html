@@ -1,0 +1,21 @@
+{% extends 'main/chernozem.html' %}
+{% load static %}
+
+{% block title %}{{ perfume.name }}{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'main/css/detail.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="detail-container">
+    <img src="{{ perfume.image.url }}" alt="{{ perfume.name }}" class="perfume-image">
+    <div class="perfume-info">
+        <h1>{{ perfume.name }}</h1>
+        <p><strong>Категория:</strong> {{ perfume.get_category_display }}</p>
+        <p><strong>Описание:</strong> {{ perfume.description }}</p>
+        <p><strong>Цена:</strong> {{ perfume.price }} ₽</p>
+        <a href="#" class="add-btn">Добавить в корзину</a>
+    </div>
+</div>
+{% endblock %}

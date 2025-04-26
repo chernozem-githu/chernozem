@@ -1,12 +1,21 @@
 services:
   - type: web
-    name: chernozem-django
-    runtime: python
-    buildCommand: "pip install -r requirements.txt"
-    startCommand: "gunicorn chernohad.wsgi:application"
+    name: chernoha-site
+    env: python
+    buildCommand: |
+      pip install -r requirements.txt
+      python manage.py collectstatic --noinput
+    startCommand: gunicorn chernoha.wsgi:application
     envVars:
-      - key: DJANGO_SETTINGS_MODULE
-        value: chernoha.settings
-      - key: PYTHON_VERSION
-        value: 3.11.9
+      - key: DEBUG
+        value: False
+      - key: SECRET_KEY
+        value: "ТВОЙ_СЕКРЕТНЫЙ_КЛЮЧ"
+      - key: ALLOWED_HOSTS
+        value: "ТВОЙ_ДОМЕН или *"
+      - key: EMAIL_HOST_USER
+        value: "ТВОЙ_EMAIL"
+      - key: EMAIL_HOST_PASSWORD
+        value: "ТВОЙ_ПАРОЛЬ_ОТ_EMAIL"
     autoDeploy: true
+    plan: free

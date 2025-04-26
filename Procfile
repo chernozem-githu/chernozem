@@ -1,1 +1,2 @@
-web: gunicorn chernoha.wsgi:application
+ gunicorn chernoha.wsgi:application
+

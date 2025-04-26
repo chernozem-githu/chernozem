@@ -1,26 +1,13 @@
-
 from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
-from django.shortcuts import render, redirect
-
-from .forms import RegisterForm  # мы сейчас её тоже создадим
-from django.shortcuts import get_object_or_404
-from django.http import JsonResponse
-from accounts.models import CustomUser
-import random
-from django.core.mail import send_mail
-
-
-from django.contrib import messages
-from django.contrib.auth import get_user_model
-from django.shortcuts import render, redirect
 from django.shortcuts import render, redirect, get_object_or_404
+from .forms import RegisterForm, PerfumeForm
+from django.core.mail import send_mail
+from django.contrib.auth import get_user_model
+import random
 from .models import Perfume, Cart, CartItem
-from django.contrib.auth.decorators import login_required
-from .forms import PerfumeForm
-from django.shortcuts import render, get_object_or_404
-from .models import Perfume
+
 
 def catalog_view(request):
     category = request.GET.get('category')  # ?category=sweet
@@ -30,9 +17,11 @@ def catalog_view(request):
         perfumes = Perfume.objects.all()
     return render(request, 'main/catalog.html', {'perfumes': perfumes})
 
+
 def perfume_detail(request, pk):
     perfume = get_object_or_404(Perfume, pk=pk)
     return render(request, 'main/perfume_detail.html', {'perfume': perfume})
+
 
 @login_required
 def add_perfume(request):
@@ -47,18 +36,12 @@ def add_perfume(request):
         form = PerfumeForm()
     return render(request, 'main/add_perfume.html', {'form': form})
 
-def catalog_view(request):
-    category = request.GET.get('category')
-    if category:
-        perfumes = Perfume.objects.filter(category=category)
-    else:
-        perfumes = Perfume.objects.all()
-    return render(request, 'main/catalog.html', {'perfumes': perfumes})
 
 @login_required
 def cart_view(request):
     cart, created = Cart.objects.get_or_create(user=request.user)
     return render(request, 'main/cart.html', {'cart': cart})
+
 
 @login_required
 def add_to_cart(request, perfume_id):
@@ -70,11 +53,13 @@ def add_to_cart(request, perfume_id):
     item.save()
     return redirect('cart')
 
+
 @login_required
 def remove_from_cart(request, item_id):
     item = get_object_or_404(CartItem, id=item_id)
     item.delete()
     return redirect('cart')
+
 
 @login_required
 def cart_page(request):
@@ -99,6 +84,7 @@ def confirm_code(request):
 
     return render(request, 'main/confirm.html')
 
+
 def register_page(request):
     if request.method == 'POST':
         form = RegisterForm(request.POST, request.FILES)
@@ -111,9 +97,6 @@ def register_page(request):
             code = str(random.randint(100000, 999999))
             user.confirmation_code = code
             user.save()
-            print("confirmation_code:", user.confirmation_code)
-            print("is_active:", user.is_active)
-            print("email:", user.email)
 
             # Отправка письма
             send_mail(
@@ -131,6 +114,7 @@ def register_page(request):
     else:
         form = RegisterForm()
     return render(request, 'main/register.html', {'form': form})
+
 
 def login_page(request):
     if request.method == 'POST':
@@ -158,16 +142,19 @@ def profile_page(request):
 
     return render(request, 'main/profile_icon.html', {'user': user})
 
+
 def logout_view(request):
     logout(request)
     return redirect('home')  # замени на нужную тебе страницу
 
 
 def index(request):
-    return render (request,'main/index.html',{'title': 'Главная страница'})
+    return render(request, 'main/index.html', {'title': 'Главная страница'})
+
 
 def about(request):
-    return render (request,'main/about.html')
+    return render(request, 'main/about.html')
 
-def contact (request):
-    return render (request,'main/contact.html')
+
+def contact(request):
+    return render(request, 'main/contact.html')

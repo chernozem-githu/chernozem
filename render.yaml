@@ -3,7 +3,7 @@ services:
     name: chernozem-django
     runtime: python
     buildCommand: "pip install -r requirements.txt"
-    startCommand: "gunicorn chernoha.wsgi:application"
+    startCommand: "gunicorn chernohad.wsgi:application"
     envVars:
       - key: DJANGO_SETTINGS_MODULE
         value: chernoha.settings

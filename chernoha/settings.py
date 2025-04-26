@@ -1,7 +1,9 @@
 from pathlib import Path
+import sys
 from datetime import timedelta
 import os
 from decouple import config
+
 
 # Основные настройки
 SECRET_KEY = config('SECRET_KEY')
@@ -12,8 +14,12 @@ EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD')
 # Пути проекта
 BASE_DIR = Path(__file__).resolve().parent.parent
 
+ROOT_URLCONF = 'chernoha.urls'
+
 # Разрешённые хосты
 ALLOWED_HOSTS = ['*']  # В продакшн-режиме замените на ваш домен
+
+sys.path.append(os.path.join(BASE_DIR, 'chernoha'))
 
 # Приложения проекта
 INSTALLED_APPS = [
@@ -152,8 +158,9 @@ CSRF_COOKIE_SECURE = False  # Включите для продакшн
 SESSION_COOKIE_SECURE = False  # Включите для продакшн
 
 # Проверка на наличие модулей
-import os
 try:
     import whitenoise
-except ImportError:
-    raise ImportError("You need to install whitenoise for static files handling")
+    import decouple
+    # другие важные зависимости
+except ImportError as e:
+    raise ImportError(f"Missing required package: {e.name}")

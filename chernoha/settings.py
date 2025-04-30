@@ -4,7 +4,6 @@ from datetime import timedelta
 import os
 from decouple import config
 
-
 # Основные настройки
 SECRET_KEY = config('SECRET_KEY')
 DEBUG = config('DEBUG', default=True, cast=bool)
@@ -58,7 +57,6 @@ MIDDLEWARE = [
 
 # Статика
 STATIC_URL = '/static/'
-STATICFILES_DIRS = [BASE_DIR / 'main' / 'static']
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 
